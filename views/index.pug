@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  ul 
+    each message in messages
+      li 
+        p= message.user
+        p= message.text
+
+  form(action="/new", method="POST" style={display:'flex', 'flex-direction':'column', width:'500px'})
+    input(type="text", name="user", placeholder="author")
+    input(type="text", name="text", placeholder="text")   
+    button(type="submit" ) Send 
