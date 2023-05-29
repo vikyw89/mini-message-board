@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <main style="padding: 10px;">
+      <h1><%= title %></h1>
+      <p>Welcome to <%= title %></p>
+      <div>
+        <% for (let message of messages) { %>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 200px, 1fr;
+            border: 1px solid grey;
+            border-radius: 5px;
+            padding: 5px;
+          "
+        >
+          <div style="font-weight: bold;"><%= message.user %></div>
+          <div><%= message.text %></div>
+        </div>
+        <% } %>
+      </div>
+      <form
+        action="/new"
+        method="post"
+        style="display: flex; flex-direction: column; width: 100%"
+      >
+        <input type="text" name="user" placeholder="author" />
+        <input type="text" name="text" placeholder="text" />
+        <button type="submit">Send</button>
+      </form>
+    </main>
+  </body>
+</html>
