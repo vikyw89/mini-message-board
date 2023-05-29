@@ -22,8 +22,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/new', function(req, res,next){
   const newContent = {
-    text:req.body.text,
-    user:req.body.user,
+    text:req.body.text ?? '...',
+    user:req.body.user ?? 'unknown user',
     added: new Date()
   }
   messages.push(newContent)
